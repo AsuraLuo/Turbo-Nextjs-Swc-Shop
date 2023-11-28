@@ -10,6 +10,7 @@ const withTheme = (node: JSX.Element) => (
         colorPrimary: "#52c41a",
       },
     }}
+    prefixCls="shop"
   >
     <ConfigProvider
       theme={{

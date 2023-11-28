@@ -1,19 +1,20 @@
 "use client";
-import React from "react";
+import { useMemo, useRef } from "react";
 import { useServerInsertedHTML } from "next/navigation";
 import { createCache, extractStyle, StyleProvider } from "@ant-design/cssinjs";
 import type Entity from "@ant-design/cssinjs/es/Cache";
+import type { ReactNode } from "react";
 
 export default function StyledComponentsRegistry({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const cache = React.useMemo<Entity>(() => createCache(), []);
-  const isServerInserted = React.useRef<boolean>(false);
+  const cache = useMemo<Entity>(() => createCache(), []);
+  const isServerInserted = useRef<boolean>(false);
 
   useServerInsertedHTML(() => {
-    // 避免 css 重复插入
+    // 避免css重复插入
     if (isServerInserted.current) {
       return;
     }
