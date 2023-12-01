@@ -1,34 +1,30 @@
-import { createSlice, type PayloadAction, Slice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction, Slice } from "@reduxjs/toolkit";
 
-const initialState: CounterSliceState = {
-  value: 0,
-  status: "idle",
+/* Types */
+export interface AppSliceState {
+  loading: false;
+  currency: any;
+  storeConfig: any;
+}
+
+const initialState: AppSliceState = {
+  loading: false,
+  currency: null,
+  storeConfig: null,
 };
 
-export const counterSlice: Slice = createSlice({
-  name: "counter",
+export const slice: Slice = createSlice({
+  name: "app",
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    setAppConfig: (
+      state: any,
+      action: PayloadAction<Pick<AppSliceState, "currency" | "storeConfig">>
+    ) => {
+      const { currency, storeConfig } = action.payload;
+      state.currency = currency;
+      state.storeConfig = storeConfig;
     },
   },
 });
-
-/* Types */
-export interface CounterSliceState {
-  value: number;
-  status: "idle" | "loading" | "failed";
-}

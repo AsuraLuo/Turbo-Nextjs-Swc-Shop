@@ -1,19 +1,17 @@
-"use server";
-import * as React from "react";
+"use client";
 import { Box, Button } from "@mui/material";
 
-import { GET_STORE_CONFIG } from "@/graphql/getStoreConfig";
-import { getClient } from "../lib/ApolloProvider/client";
-
-export default async function Home() {
-  const { data } = await getClient().query({ query: GET_STORE_CONFIG });
+export default function Home({ ...props }) {
+  const { params } = props;
+  const { appConfig } = params ?? {};
+  const { storeConfig } = appConfig ?? {};
 
   return (
     <Box>
+      {storeConfig?.secure_base_url ?? ""}
       <Button variant="contained" color="primary">
-        App
+        Home Page
       </Button>
-      <div>{JSON.stringify(data)}</div>
     </Box>
   );
 }

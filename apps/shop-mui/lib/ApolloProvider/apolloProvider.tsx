@@ -6,13 +6,20 @@ import {
   NextSSRApolloClient,
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support/ssr";
-import { Tune } from "@mui/icons-material";
+
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
+import { setVerbosity } from "ts-invariant";
+
+if (process.env.NODE_ENV === "development") {
+  setVerbosity("debug");
+  loadDevMessages();
+  loadErrorMessages();
+}
 
 const makeClient = () => {
   const isServer: boolean = typeof window === "undefined";
   const httpLink = new HttpLink({
     uri: `${process.env.NEXT_PUBLIC_HOST_URL}api/graphql`,
-    useGETForQueries: Tune,
     credentials: "same-origin",
     useGETForQueries: true,
     fetchOptions: {

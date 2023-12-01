@@ -1,6 +1,6 @@
-import { gql, DocumentNode } from "@apollo/client";
+import { gql, type TypedDocumentNode } from "@apollo/client";
 
-export const GET_STORE_CONFIG: DocumentNode = gql`
+export const GET_STORE_CONFIG: TypedDocumentNode = gql`
   query getStoreConfig {
     storeConfig {
       code: store_code

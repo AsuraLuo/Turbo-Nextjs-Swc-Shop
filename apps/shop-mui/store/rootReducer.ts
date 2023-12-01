@@ -1,5 +1,5 @@
-import { counterSlice } from "./app";
+import { reducer as appReducer } from "./app";
 
 export const reducer = {
-  counter: counterSlice.reducer,
+  app: appReducer,
 };
