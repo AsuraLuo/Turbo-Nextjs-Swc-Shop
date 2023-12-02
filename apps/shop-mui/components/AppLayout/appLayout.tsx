@@ -9,7 +9,7 @@ const AppLayout = ({
   children,
   appConfig,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   appConfig: any;
 }) => {
   const dispatch = useDispatch();

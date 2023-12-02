@@ -1,0 +1,21 @@
+{
+  "name": "@dcommerce/shop-nextjs-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "banner.js",
+    "index.js",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "dateformat": "^4.5.1",
+    "next-build-id": "^3.0.0"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.12"
+  }
+}

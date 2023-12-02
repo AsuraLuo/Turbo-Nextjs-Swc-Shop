@@ -1,11 +1,20 @@
 {
-  "name": "turbo-nextjs-swc-shop",
+  "name": "@dcommerce/nextjs-swc-shop",
+  "version": "0.1.0",
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "husky:prepare": "husky install",
+    "commit": "./node_modules/cz-customizable/standalone.js",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
@@ -21,13 +30,21 @@
     "ts-invariant": "^0.10.3"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@dcommerce/shop-commitlint-config": "workspace:^",
+    "@dcommerce/shop-eslint-config": "workspace:^",
+    "@dcommerce/shop-prettier-config": "workspace:^",
+    "@dcommerce/shop-stylelint-config": "workspace:^",
+    "@dcommerce/shop-ts-config": "workspace:^",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.10.0",
     "@types/redux-logger": "^3.0.12",
-    "prettier": "^3.1.0",
-    "turbo": "latest"
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.2.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "turbo": "^1.6.3",
+    "typescript": "^5.2.2"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {

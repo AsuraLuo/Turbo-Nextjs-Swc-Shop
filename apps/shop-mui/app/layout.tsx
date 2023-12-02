@@ -1,4 +1,4 @@
-import * as React from "react";
+import { Suspense } from "react";
 import type { Metadata } from "next/types";
 
 import { GET_STORE_CONFIG } from "@/graphql/getStoreConfig";
@@ -35,11 +35,12 @@ const RootLayout = async ({
         <ApolloProvider>
           <StoreProvider>
             <ThemeRegistry>
-              <AppLayout appConfig={data}>
-                <Header />
+              <AppLayout appConfig={data}></AppLayout>
+              <Header />
+              <Suspense>
                 <Navigation />
-                {children}
-              </AppLayout>
+              </Suspense>
+              {children}
             </ThemeRegistry>
           </StoreProvider>
         </ApolloProvider>
