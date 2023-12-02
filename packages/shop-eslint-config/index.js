@@ -23,6 +23,7 @@ module.exports = {
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
+    'lines-around-directive': ['error', { before: 'always', after: 'never' }],
     'jsx-a11y/label-has-associated-control': 0,
     'no-console': ['error', { allow: ['error', 'info', 'warn'] }],
     'no-param-reassign': 0,

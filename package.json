@@ -19,9 +19,6 @@
   "dependencies": {
     "@apollo/client": "^3.8.7",
     "@apollo/experimental-nextjs-app-support": "^0.5.1",
-    "@emotion/cache": "^11.11.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.7",
     "http-proxy-middleware": "^2.0.6",
     "lodash-es": "^4.17.21",
@@ -42,7 +39,6 @@
     "eslint": "^8.2.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
     "turbo": "^1.6.3",
     "typescript": "^5.2.2"
   },

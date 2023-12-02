@@ -1,27 +1,17 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@dcommerce/shop-ts-config/nextjs.json",
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "strictNullChecks": true,
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "baseUrl": "./",
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    },
-    "strictNullChecks": true
+    ]
   },
-  "include": [
-    "next-env.d.ts",
-    "next.config.js",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "next.config.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
