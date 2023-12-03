@@ -46,6 +46,7 @@ module.exports = {
         }
       }
     ],
+    'react/prop-types': 0,
     'react/function-component-definition': 0,
     'react/no-danger': 0,
     'react/jsx-fragments': 0,

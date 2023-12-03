@@ -1,4 +1,14 @@
+const nextConfig = require('@dcommerce/shop-nextjs-config')
+
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true
+  ...nextConfig(),
+  compiler: {
+    styledComponents: {
+      displayName: true,
+      fileName: true,
+      ssr: true,
+      minify: false
+    }
+  }
 }

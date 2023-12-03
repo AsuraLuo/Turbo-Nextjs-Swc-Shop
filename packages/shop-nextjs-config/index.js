@@ -6,6 +6,7 @@ module.exports = () => {
    */
   const nextConfig = {
     reactStrictMode: false,
+    swcMinify: true,
     transpilePackages: ['lodash-es', 'nanoid']
   }
 

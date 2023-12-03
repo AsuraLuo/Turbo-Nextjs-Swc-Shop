@@ -1,1 +1,1 @@
-export { default } from "./apolloProvider";
+export { default } from './apolloProvider'

@@ -1,3 +1,3 @@
 module.exports = {
-  extends: [require.resolve('@dcommerce/shop-eslint-config')],
+  extends: [require.resolve('@dcommerce/shop-eslint-config')]
 }
