@@ -1,16 +1,16 @@
-'use client'
-import { Box, Button } from '@mui/material'
+import { Suspense } from 'react'
 
-export default function Home({ params }) {
+import HomePage from '@/components/HomePage'
+
+export default function Home(props: any) {
+  const { params } = props
   const { appConfig } = params ?? {}
   const { storeConfig } = appConfig ?? {}
+  const identifier: string = storeConfig?.cms_home_page ?? ''
 
   return (
-    <Box>
-      {storeConfig?.secure_base_url ?? ''}
-      <Button variant="contained" color="primary">
-        Home Page
-      </Button>
-    </Box>
+    <Suspense>
+      <HomePage identifier={identifier} />
+    </Suspense>
   )
 }

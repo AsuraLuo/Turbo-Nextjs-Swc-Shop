@@ -1,14 +1,14 @@
-"use client";
-import Link from "next/link";
-import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+'use client'
+import Link from 'next/link'
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 
-import { GET_CATEGOR_TREE } from "@/graphql/getCategoryTree";
+import { GET_CATEGOR_TREE } from '@/graphql/getCategoryTree'
 
-import { StyledNavigation } from "./styled";
+import { StyledNavigation } from './styled'
 
 const Navigation = () => {
-  const { data } = useSuspenseQuery(GET_CATEGOR_TREE);
-  const categoryList: any[] = data?.categoryList?.[0]?.children ?? [];
+  const { data } = useSuspenseQuery(GET_CATEGOR_TREE)
+  const categoryList: any[] = data?.categoryList?.[0]?.children ?? []
 
   return (
     <StyledNavigation>
@@ -21,12 +21,12 @@ const Navigation = () => {
                   <span dangerouslySetInnerHTML={{ __html: category.name }} />
                 </Link>
               </div>
-            );
+            )
           })}
         </div>
       )}
     </StyledNavigation>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

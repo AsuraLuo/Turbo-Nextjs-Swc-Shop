@@ -1,16 +1,19 @@
 'use client'
-import { ThemeProvider } from '@mui/material/styles'
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
+import { theme } from '@/theme/mui.theme'
+import ThemeProvider from '../ThemeProvider'
 import EmotionCacheProvider from './emotionCache'
-import { theme } from '../../theme'
 
 const EmotionProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <EmotionCacheProvider options={{ key: 'mui' }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
+      <ThemeProvider>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          {children}
+        </MuiThemeProvider>
       </ThemeProvider>
     </EmotionCacheProvider>
   )

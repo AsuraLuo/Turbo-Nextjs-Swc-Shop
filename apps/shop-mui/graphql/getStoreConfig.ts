@@ -1,4 +1,4 @@
-import { gql, type TypedDocumentNode } from "@apollo/client";
+import { gql, type TypedDocumentNode } from '@apollo/client'
 
 export const GET_STORE_CONFIG: TypedDocumentNode = gql`
   query getStoreConfig {
@@ -22,4 +22,4 @@ export const GET_STORE_CONFIG: TypedDocumentNode = gql`
       symbol: base_currency_symbol
     }
   }
-`;
+`
