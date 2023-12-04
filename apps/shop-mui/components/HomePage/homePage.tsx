@@ -1,20 +1,11 @@
 'use client'
 import { Button } from '@mui/material'
-// import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 
-// import { GET_CMS_PAGE } from '@/graphql/getCmsPage'
-
-const HomePage = ({ identifier }) => {
-  // const { data } = useSuspenseQuery(GET_CMS_PAGE, {
-  //   variables: { identifier }
-  // })
-  console.info(identifier)
-
+const HomePage = ({ page }) => {
   return (
     <div>
-      <p>HomePage</p>
       <Button variant="contained" color="primary">
-        Home Page
+        <span>{page.title}</span>
       </Button>
     </div>
   )
