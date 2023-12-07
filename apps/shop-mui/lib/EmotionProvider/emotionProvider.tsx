@@ -11,8 +11,10 @@ const EmotionProvider = ({ children }: { children: React.ReactNode }) => {
     <EmotionCacheProvider options={{ key: 'mui' }}>
       <ThemeProvider>
         <MuiThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
+          <div>
+            <CssBaseline />
+            {children}
+          </div>
         </MuiThemeProvider>
       </ThemeProvider>
     </EmotionCacheProvider>

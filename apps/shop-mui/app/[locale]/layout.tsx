@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
 
 import { GET_STORE_CONFIG } from '@/graphql/getStoreConfig'
@@ -16,6 +17,9 @@ export const metadata: Metadata = {
   description: 'Next.js App Router + Material UI v5'
 }
 
+// Can be imported from a shared config
+const locales = ['en', 'zh']
+
 const RootLayout = async ({
   children,
   params
@@ -23,8 +27,12 @@ const RootLayout = async ({
   children: React.ReactNode
   params: {
     appConfig: any
+    locale: string
   }
 }) => {
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(params.locale as string)) notFound()
+
   const { data } = await getClient().query({ query: GET_STORE_CONFIG })
 
   params.appConfig = data
@@ -35,6 +43,7 @@ const RootLayout = async ({
         <ApolloProvider>
           <StoreProvider>
             <EmotionProvider>
+              <Header />
               <AppLayout appConfig={data} />
               <Header />
               <Suspense>

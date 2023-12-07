@@ -12,12 +12,7 @@ const AppLayout = ({ children, appConfig }: { children?: React.ReactNode; appCon
     if (!isEmpty(appConfig)) dispatch(appActions.setAppConfig(appConfig))
   }, [appConfig])
 
-  return (
-    <div id="__next">
-      {children}
-      <p>AppLayout</p>
-    </div>
-  )
+  return <div id="__next">{children}</div>
 }
 
 export default AppLayout

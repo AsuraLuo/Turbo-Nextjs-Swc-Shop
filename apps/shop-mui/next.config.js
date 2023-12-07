@@ -1,7 +1,11 @@
 const nextConfig = require('@dcommerce/shop-nextjs-config')
+const withNextIntl = require('next-intl/plugin')(
+  // Specify a custom path here
+  './i18n.ts'
+)
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+module.exports = withNextIntl({
   ...nextConfig(),
   compiler: {
     emotion: {
@@ -24,4 +28,4 @@ module.exports = {
       }
     }
   }
-}
+})

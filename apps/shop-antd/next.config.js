@@ -8,7 +8,9 @@ module.exports = {
       displayName: true,
       fileName: true,
       ssr: true,
-      minify: false
+      minify: false,
+      pure: false,
+      cssProp: false
     }
   }
 }
